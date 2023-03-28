@@ -9,7 +9,7 @@ v3 <- sample$ankle
 
 
 #### calculate the coupling angle ######
-#' Phase-angle plot
+#' coupling angle plot
 #'
 #' @param ang1 Hip angle vector.
 #' @param ang2 Knee angle vector.
@@ -23,7 +23,7 @@ phase_angle <- function(ang1, ang2) {
   v_mag <- sqrt(v1_d ^ 2 + v2_d ^ 2)
   cosang <- v1_d / v_mag
   sinang <- v2_d / v_mag
-  rad <- 180 / 3.14159
+  rad <- 180 / 3.14159  # rad = deg / pi
   phsang <- atan2(sinang, cosang) * rad
   n <- length(v1_d)
   for (i in 1:n) {
@@ -40,11 +40,20 @@ pa <- phase_angle(v1, v2)
 
 
 ########### plot the angle-angle plot############
+#' angle-angle plot
+#'
+#' @param ang1 Hip angle vector.
+#' @param ang2 Knee angle vector.
+#' @returns A angle_angle figure.
+#' @export
+#' @examples
+#' ang_ang_plot(c(31.1977, 30.14246, 29.17131), c(22.40979, 24.59055, 26.00155))
 ang_ang_plot <- function(ang1, ang2) {
   angle <- data.frame(A1 = ang1,
                       A2 = ang2,
-                      time = 1:length(v1))
-  ang_l <- gather(angle, angle, joint, -time)
+                      time = 1:length(ang1)) # use 'ang1' to replace v1, otherwise, shape doesn't match in examples
+  ang_l <- gather(angle, angle, joint, -time) #ignore time
+  # print(ang_l)
   ggplot(angle, aes(y = A1, x = A2)) + geom_point(aes(col = time), size = 4) +
     scale_colour_gradientn(colours = rainbow(7)) + theme_bw()
 }
@@ -52,6 +61,13 @@ ang_ang_plot(v1, v2)
 
 
 ###get the ratio of phases #####
+#' phase-ratio statistics
+#'
+#' @param pa phase-angle vector.
+#' @returns A phase-ratio dataframe.
+#' @export
+#' @examples
+#' phase_ratio(c(11, 14, 158, 200, 544, 350, 47, 60, 240, 230, 270, 288, 300, 130))
 phase_ratio <- function(pa) {
   pr <-
     sum(pa >= 0 &
@@ -75,6 +91,7 @@ phase_ratio(pa)
 
 
 ###get the ratio of phases for multiple trials/ subject and provide a boxplot #####
+
 phase_ratio_multi <- function(df) {
   P_angs <- apply(angle, 2, phase_ratio)
   P_angs_df <- do.call(rbind, a)
@@ -82,6 +99,7 @@ phase_ratio_multi <- function(df) {
   return(P_angs_df)
 
 }
+
 
 ############calculate the variability ###########
 
@@ -92,7 +110,7 @@ CAV <- function(df) {
   bar_x <- apply(df, 1, cos) %>% colMeans()
   bar_y <- apply(df, 1, sin) %>% colMeans()
 
-   for(i in 1:length(bar_x)) {
+  for(i in 1:length(bar_x)) {
     if(bar_x[i] > 0 & bar_y[i] > 0) {
       bar_CA[i] <- atan(bar_x[i] / bar_y[i]) * rad
     } else if(bar_x[i] < 0) {
@@ -104,8 +122,11 @@ CAV <- function(df) {
     } else if(bar_x[i]  == 0 & bar_y[i] < 0) {
       bar_CA[i] = -90
     }
-   }
+  }
   return(bar_CA)
 }
+
+df <- sample
 CAV(df)
 ts.plot(CAV(df))
+
