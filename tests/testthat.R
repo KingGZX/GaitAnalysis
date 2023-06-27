@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/articles/special-files.html
 
 library(testthat)
-library(GaitAnalysis)
+library(VectorCodeR)
 
-test_check("GaitAnalysis")
+test_check("VectorCodeR")
