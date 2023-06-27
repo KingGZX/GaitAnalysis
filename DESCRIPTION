@@ -1,12 +1,12 @@
 Package: VectorCodeR
 Type: Package
-Title: VectorCodeR
+Title: Easily Analyze Your Gait Patterns Using Vector Coding Technique
 Version: 0.1.0
 Authors@R: c(
     person("PWH", "Kwong", email = "wai-hang.kwong@polyu.edu.hk", role = "aut"),
     person("Zhexuan", "GU", email = "22054513g@connect.polyu.hk", role = "cre"))
 Maintainer: Zhexuan GU <22054513g@connect.polyu.hk>
-Description: VectorCodeR is an R package designed to facilitate the analysis of inter-limb and intra-limb coordination in human movement. It provides functions for calculating the phase angle between two segments, enabling researchers and practitioners to quantify the coordination patterns within and between limbs during various motor tasks.
+Description: It is an R package designed to facilitate the analysis of inter-limb and intra-limb coordination in human movement. It provides functions for calculating the phase angle between two segments, enabling researchers and practitioners to quantify the coordination patterns within and between limbs during various motor tasks.
 License: GPL-3
 Depends:
     R (>= 3.5.0), readxl, tidyverse, grDevices, graphics, stats, ggplot2, tidyr, dplyr
