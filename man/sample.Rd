@@ -7,9 +7,9 @@
 \format{
 An object of class \code{"data.frame"}
 \describe{
- \item{knee}{}
- \item{hip}{}
- \item{ankle}{}
+ \item{knee}{time series data recoding knee joint angles}
+ \item{hip}{time series data recoding hip joint angles}
+ \item{ankle}{time series data recoding ankle joint angles}
 }
 }
 \usage{

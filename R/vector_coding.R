@@ -129,18 +129,6 @@ phase_ratio <- function(pa) {
 }
 # phase_ratio(pa)
 
-
-###get the ratio of phases for multiple trials/ subject and provide a boxplot #####
-
-# phase_ratio_multi <- function(df) {
-#  P_angs <- apply(angle, 2, phase_ratio)
-#  P_angs_df <- do.call(rbind, a)
-#  boxplot(P_angs_df)
-#  return(P_angs_df)
-# }
-# df <- sample
-# phase_ratio_multi(df)
-
 ############calculate the variability ###########
 #' CAV plot
 #'
