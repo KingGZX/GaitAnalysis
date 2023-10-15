@@ -10,4 +10,14 @@ testthat::test_that("errors", {
     ang_ang_plot(c(1, 2), c(1, 2, 3)),
     "joint angles length not the same"
   )
+  
+  testthat::expect_error(
+    area(c(1, 2), c(1, 2, 3), 2),
+    "joint angles length not the same"
+  )
+  
+  testthat::expect_error(
+    perimeter(c(1, 2), c(1, 2, 3), 2),
+    "joint angles length not the same"
+  )
 })

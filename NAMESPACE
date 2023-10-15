@@ -2,6 +2,8 @@
 
 export(CAV)
 export(ang_ang_plot)
+export(area)
+export(perimeter)
 export(phase_angle)
 export(phase_ratio)
 import(grDevices)

@@ -1,7 +1,7 @@
 Package: VectorCodeR
 Type: Package
 Title: Easily Analyze Your Gait Patterns Using Vector Coding Technique
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: c(
     person("pwh", "kwong", email = "wai-hang.kwong@polyu.edu.hk", role = "aut"),
     person("ananda", "sidarta", email = "ananda.sidarta@ntu.edu.sg", role = "ctb"),
@@ -13,6 +13,7 @@ Description:
   Needham, R., Naemi, R., & Chockalingam, N. (2014) <doi:10.1016/j.jbiomech.2013.12.032>.
   Needham, R., Naemi, R., & Chockalingam, N. (2015) <doi:10.1016/j.jbiomech.2015.07.023>.
   Tepavac, D., & Field-Fote, E. C. (2001) <doi:10.1123/jab.17.3.259>.
+  Park, J.H., Lee, H., Cho, Js. et al. (2021) <doi:10.1038/s41598-020-80237-w>.
 License: GPL-3
 Depends:
     R (>= 3.5.0), readxl, tidyverse, grDevices, graphics, stats, ggplot2, tidyr, dplyr
